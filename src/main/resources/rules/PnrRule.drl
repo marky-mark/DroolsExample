@@ -1,0 +1,9 @@
+package com.mtt.drools.model
+
+rule "Pnr that is air that's date is within than 5 minutes"
+
+ when
+   pnr : Pnr(isWithinMinutes(5)  ,pnrType == PnrType.AIR, !hasFired )
+ then
+   pnr.fire();
+end
